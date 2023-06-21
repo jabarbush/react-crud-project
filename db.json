@@ -1,0 +1,23 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Jimmy A. User",
+      "dob": "03/13/2001",
+      "phone": "7277588823",
+      "email": "jimmya@invalid.email",
+      "signature": {
+        "pin": "444422",
+        "fontStyle": "Dancing Script"
+      }
+    },
+    {
+      "id": 2,
+      "name": "Jimmy B. User",
+      "dob": "03/14/2001",
+      "phone": "7277588824",
+      "email": "jimmyb@invalid.email",
+      "signature": null
+    }
+  ]
+}
