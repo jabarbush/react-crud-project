@@ -1,14 +1,12 @@
 import React from "react";
 import "./App.css";
+import List from "./components/ListUsers";
 
 function App() {
   return (
     <div className="app">
-      <h1>Admin User Tool</h1>
-      <p>
-        Follow the instructions in the README file to complete the project. Good
-        luck!
-      </p>
+      <h1 className="page-title">User Roster</h1>
+      <List />
     </div>
   );
 }
