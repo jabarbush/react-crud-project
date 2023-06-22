@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Figtree');
 
-
 .app {
   height: 100vh;
   padding: 2.5rem 1.5rem 1.5rem 1.5rem;
@@ -10,13 +9,13 @@
   align-self: stretch;
   background-color: #333333;
   font-family: 'Figtree';
+  color: #D1D4DC;
 }
 
 .page-title {
   display: flex;
   width: 64rem;
   flex-direction: column;
-  color: #D1D4DC;
   font-size: 1.125rem;
   font-weight: 500;
   line-height: 100%;
@@ -28,7 +27,8 @@
 }
 
 .card {
-  display: block;
+  display: flex;
+  justify-content: space-between;
   padding: 1.25rem 1.5rem;
   margin-bottom: 0.75rem;
   align-items: center;
@@ -40,16 +40,56 @@
 }
 
 .user-name {
-  color: #D1D4DC;
-  /* H3 */
   font-size: 1rem;
   font-weight: 500;
   line-height: 100%;
 }
 
 .dob {
-  color: #D1D4DC;
-  /* Label */
   font-size: 0.6875rem;
   line-height: 100%;
+}
+
+.add-user-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  gap: 1.5rem;
+  border-radius: 6px;
+  background: #121623;
+}
+
+/* This is to give the background a grayish tint if a pop-up is active*/
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(128, 128, 128, 0.5);
+  z-index: 1;
+}
+
+.signature-status {
+  display: flex;
+  padding: 0.25rem 0.5rem;
+  align-items: flex-start;
+  gap: 0.625rem;
+  border-radius: 4px;
+}
+
+.green {
+  border: 2px solid #26A69A;
+  background: #1B6261;
+}
+
+.red {
+  border: 2px solid #EF5350;
+  background: rgba(239, 83, 80, 0.57);
 }
