@@ -1,19 +1,23 @@
 import React from 'react';
-import userData from '../db.json'
+import User from '../interfaces/User';
+import ListProps from '../interfaces/ListProps';
 
-const List = () => {
-    const userList = userData.users;
-
-    return (
-        <div className="list-container">
-            {userList.map(user => (
-            <div key={user.id}  className="card">
-                <div className='user-name'>{user.name}</div>
-                <div className='dob'>DOB: {user.dob}</div>
-            </div>
-        ))}
+const List: React.FC<ListProps> = ({ userList }) => {
+  return (
+    <div className="list-container">
+      {userList.map((user) => (
+        <div className="card" key={user.id}>
+          <div className="user-info">
+            <div className="user-name">{user.name}</div>
+            <div className="dob">DOB: {user.dob}</div>
+          </div>
+          <div className={`signature-status ${user.signature ? 'green' : 'red'}`}>
+            {user.signature ? 'Has Custom Signature' : 'Missing Custom Signature'}
+          </div>
         </div>
-    )
+      ))}
+    </div>
+  );
 };
 
 export default List;
