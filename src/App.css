@@ -22,6 +22,25 @@
   line-height: 100%;
 }
 
+.add-user-btn {
+  display: flex;
+  padding: 0.875rem 1.25rem;
+  align-items: flex-start;
+  gap: 0.625rem;
+  border-radius: 6px;
+  border: 1px solid var(--gray-1, #333);
+  background: var(--ritten-blue, #1890FF);
+  box-shadow: 0px 1px 8px 0px rgba(82, 71, 67, 0.50);
+}
+
+.add-user-btn:hover {
+  opacity: 70%;
+}
+
+.toolbar {
+  margin-bottom: 1rem;
+}
+
 .list-container {
   display: block;
   flex-wrap: wrap;
@@ -47,6 +66,15 @@
   box-shadow: 0px 1px 8px 0px rgba(82, 71, 67, 0.50);
 }
 
+.card.active {
+  border-radius: 8px;
+  border: 1px solid #1890FF;
+  background: #121623;
+  box-shadow: 0 0 10px 5px rgba(82, 71, 67, 0.50);
+  outline: 2px solid #1890FF;
+  outline-offset: -2px;
+}
+
 .user-name {
   font-size: 1rem;
   font-weight: 500;
@@ -66,12 +94,11 @@
   transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 1.5rem;
   gap: 1.5rem;
   border-radius: 6px;
   background: #121623;
+  width: 24.874rem;
+  height: 26rem;
 }
 
 /* This is to give the background a grayish tint if a pop-up is active*/
@@ -85,13 +112,83 @@
   z-index: 1;
 }
 
+form {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  border-radius: 6px;
+  background: #121623;
+  margin: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+label {
+  font-size: 0.6875rem;
+  line-height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 0;
+  padding-bottom: 0.5rem;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  padding: 0.6875rem;
+  align-items: center;
+  flex: 1 0 0;
+  color: #D1D4DC;
+  border-radius: 4px;
+  border: 1px solid #50535E;
+  background: #0A0C13;
+  margin-bottom: 1rem;
+}
+
+.new-user-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 100%;
+  margin-top: 0;
+}
+
+.add-user-submit,
+.cancel {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  color: #0A0C13;
+  font-size: 0.875rem;
+  line-height: 100%;
+  padding: 0.875rem 1.25rem;
+  border-radius: 6px;
+  justify-content: flex-end;
+}
+
+.add-user-submit {
+  position: absolute;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  border: 1px solid var(--ritten-blue, #1890FF);
+  background: var(--ritten-blue, #1890FF);
+  box-shadow: 0px 1px 8px 0px rgba(213, 213, 213, 0.50);
+}
+
+.cancel {
+  position: absolute;
+  color: var(--ritten-blue, #1890FF);
+  background-color: transparent;
+  border: transparent;
+  bottom: 1.5rem;
+  right: 9rem
+}
+
 .signature-status {
   display: flex;
   padding: 0.25rem 0.5rem;
-  align-items: flex-start;
+  align-items: center;
   gap: 0.625rem;
   border-radius: 4px;
-  align-items: center; 
   margin-left: auto;
   margin-right: 1rem;
 }
@@ -119,15 +216,27 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  transition: width 0.2s;
-  margin: 6.5rem 1.5rem 2.5rem 0rem;
+  margin: 8.85rem 1.5rem 2.5rem 0rem;
   border-radius: 8px;
   border: 1px solid #363A45;
+  opacity: 0;
+  animation: slideIn 0.2s ease-in-out forwards;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 1;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 hr {
   width: 100%;
-  height: 0.0625rem;  
+  height: 0.0625rem;
   background: #787878;
   margin: 0;
 }
@@ -137,8 +246,7 @@ hr {
   font-weight: 700;
   line-height: 100%;
   display: inline-flex;
-  margin-top: 0.5rem;
-  
+  margin-top: 1rem;
 }
 
 p.user-info {
@@ -154,4 +262,52 @@ p.user-info {
   align-self: flex-start;
   padding: 1.5rem;
   margin-bottom: 0;
+}
+
+.icons {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  padding: 1.5rem 1.5rem 0rem 0rem;
+}
+
+.icon {
+  color: #D1D4DC;
+  width: 1.25rem;
+  padding-left: 1rem;
+  height: 1.25rem;
+}
+
+.icon:nth-child(3) {
+  width: 2rem;
+  height: 2rem;
+  padding-left: 0.5rem;
+}
+
+.icon:hover {
+  color: #1890ff;
+}
+
+.panel-icon {
+  color: #D1D4DC;
+}
+
+.panel-icon:hover {
+  color: #1890ff;
+}
+
+.signature-form {
+  display: block;
+}
+
+.signature-preview {
+  display: flex;
+  height: 6.25rem;
+  align-items: center;
+  gap: 0.6875rem;
+  align-self: stretch;
+  border-radius: 6px;
+  background: #D2D2D2;
 }
