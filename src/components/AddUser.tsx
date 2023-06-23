@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import userData from '../db.json';
 import User from '../interfaces/User';
 import AddUserProps from '../interfaces/AddUserProps';
 
-const AddUser: React.FC<AddUserProps> = ({ onClose, onAddUser }) => {
+const AddUser: React.FC<AddUserProps> = ({ userList, onClose, onAddUser }) => {
   const [isPopupVisible, setIsPopupVisible] = useState(true);
   const [name, setName] = useState('');
   const [dob, setDob] = useState('');
@@ -45,8 +44,10 @@ const AddUser: React.FC<AddUserProps> = ({ onClose, onAddUser }) => {
       return;
     }
 
+    let newId = Math.max(...userList.map((user) => user.id)) + 1;
+    
     const newUser: User = {
-      id: Math.max(...userData.users.map((user) => user.id)) + 1,
+      id: newId ? newId : 1,
       name,
       dob,
       phone,

@@ -32,7 +32,7 @@ function App() {
       <List userList={userList} />
       {isPopupOpen &&
         <div className="popup-overlay">
-          <AddUser onClose={handleClosePopup} onAddUser={handleAddUser} />
+          <AddUser userList={userList} onClose={handleClosePopup} onAddUser={handleAddUser} />
         </div>
       }
     </div>

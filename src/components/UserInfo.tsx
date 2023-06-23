@@ -1,10 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import UserInfoProps from '../interfaces/UserInfoProps';
 import { ReactComponent as Trash } from '../assets/trash.svg';
 import { ReactComponent as Edit } from '../assets/edit.svg';
 import { ReactComponent as FormClose } from '../assets/form-close.svg';
+import DeleteUser from './DeleteUser';
 
-const UserInfo: React.FC<UserInfoProps> = ({ selectedUser, onCloseUserInfo }) => {
+const UserInfo: React.FC<UserInfoProps> = ({ userList, selectedUser, onCloseUserInfo }) => {
+    const [showDeleteUser, setShowDeleteUser] = useState(false);
+
+    const handleOpenDeleteUser = () => {
+        setShowDeleteUser(true);
+      };
+    
+      const handleCloseDeleteUser = () => {
+        setShowDeleteUser(false);
+      };
+
   return (
     <div className={`info-tab ${selectedUser ? 'active' : ''}`}>
         <div className='data'>
@@ -28,7 +39,7 @@ const UserInfo: React.FC<UserInfoProps> = ({ selectedUser, onCloseUserInfo }) =>
                 </div>
             </p>
             <div className='icons'>
-                <Trash className='icon'/>
+                <Trash className='icon' onClick={handleOpenDeleteUser} />
                 <Edit className='icon'/>
                 <FormClose onClick={onCloseUserInfo} className='icon' />
             </div>
@@ -49,6 +60,8 @@ const UserInfo: React.FC<UserInfoProps> = ({ selectedUser, onCloseUserInfo }) =>
             <div className='signature-preview'>
             </div>
         </div>
+        {showDeleteUser && 
+        <DeleteUser userList={userList} selectedUser={selectedUser} onClose={handleCloseDeleteUser} onDeleteUser={onCloseUserInfo}/>}
     </div>
   );
 };
