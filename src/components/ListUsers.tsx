@@ -21,7 +21,7 @@ const List: React.FC<ListProps> = ({ userList }) => {
   return (
     <div>
       {UserInfoActive && (
-        <UserInfo selectedUser={selectedUser} onCloseUserInfo={handleCloseUserInfo} />
+        <UserInfo userList={userList} selectedUser={selectedUser} onCloseUserInfo={handleCloseUserInfo} />
       )}
       <div className={`list-container ${UserInfoActive ? 'active' : ''}`}>
         {userList.map((user) => (
