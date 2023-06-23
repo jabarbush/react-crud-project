@@ -26,7 +26,9 @@ function App() {
   return (
     <div className="app">
       <h1 className="page-title">User Roster</h1>
-      <button onClick={handleOpenPopup}>Add New User</button>
+      <div className="toolbar">
+        <button onClick={handleOpenPopup} className="add-user-btn">Add New User</button>
+      </div>
       <List userList={userList} />
       {isPopupOpen &&
         <div className="popup-overlay">

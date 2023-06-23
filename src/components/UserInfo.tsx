@@ -1,9 +1,12 @@
 import React from 'react';
 import UserInfoProps from '../interfaces/UserInfoProps';
+import { ReactComponent as Trash } from '../assets/trash.svg';
+import { ReactComponent as Edit } from '../assets/edit.svg';
+import { ReactComponent as FormClose } from '../assets/form-close.svg';
 
 const UserInfo: React.FC<UserInfoProps> = ({ selectedUser, onCloseUserInfo }) => {
   return (
-    <div className="info-tab">
+    <div className={`info-tab ${selectedUser ? 'active' : ''}`}>
         <div className='data'>
             <div className='user-name'>{selectedUser?.name}</div>
             <p className='user-info'>
@@ -24,11 +27,27 @@ const UserInfo: React.FC<UserInfoProps> = ({ selectedUser, onCloseUserInfo }) =>
                     {selectedUser?.email}
                 </div>
             </p>
-            <button onClick={onCloseUserInfo}>Close</button>
+            <div className='icons'>
+                <Trash className='icon'/>
+                <Edit className='icon'/>
+                <FormClose onClick={onCloseUserInfo} className='icon' />
+            </div>
         </div>
         <hr/>
-        <div>
+        <div className='signature-form'>
             Add a custom signature
+            <label>Signature PIN (6 Digits)</label>
+            <br/>
+            <input type="text" placeholder='Signature PIN'/>
+            <br/>
+            <label>Signature Font Style</label>
+            <br/>
+            <input type="text" placeholder='Select font...'/>
+            <br/>
+            <label>Signature Preview</label>
+            <br/>
+            <div className='signature-preview'>
+            </div>
         </div>
     </div>
   );

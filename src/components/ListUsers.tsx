@@ -25,7 +25,7 @@ const List: React.FC<ListProps> = ({ userList }) => {
       )}
       <div className={`list-container ${UserInfoActive ? 'active' : ''}`}>
         {userList.map((user) => (
-          <div className="card" key={user.id}>
+          <div key={user.id} className={`card ${selectedUser === user ? 'active' : ''}`}>
             <div>
               <div className="user-name">{user.name}</div>
               <div className="dob-card">DOB: {user.dob}</div>
@@ -33,7 +33,7 @@ const List: React.FC<ListProps> = ({ userList }) => {
             <div className={`signature-status ${user.signature ? 'green' : 'red'}`}>
               {user.signature ? 'Has Custom Signature' : 'Missing Custom Signature'}
             </div>
-            <PanelLeftClose onClick={() => handleUserClick(user)} />
+            <PanelLeftClose onClick={() => handleUserClick(user)} className='panel-icon' style={{ color: selectedUser === user ? '#1890ff' : '' }}/>
           </div>
         ))}
       </div>
