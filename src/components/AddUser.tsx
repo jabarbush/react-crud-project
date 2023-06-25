@@ -47,7 +47,7 @@ const AddUser: React.FC<AddUserProps> = ({ userList, onClose, onAddUser }) => {
     let newId = Math.max(...userList.map((user) => user.id)) + 1;
     
     const newUser: User = {
-      id: newId ? newId : 1,
+      id: newId || 1,
       name,
       dob,
       phone,

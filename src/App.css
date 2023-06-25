@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Figtree');
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script');
+@import url('https://fonts.googleapis.com/css?family=Mr+Dafoe');
+@import url('https://fonts.googleapis.com/css?family=Great+Vibes');
 
 /* TODO: separate these out to their own files depending on where they're used??? */
 .app {
@@ -33,7 +36,8 @@
   box-shadow: 0px 1px 8px 0px rgba(82, 71, 67, 0.50);
 }
 
-.add-user-btn:hover {
+.add-user-btn:hover, .signature-view-edit-btn:hover, .add-user-submit:hover,
+.cancel:hover, .cancel-signature:hover, .add-signature-submit:hover {
   opacity: 70%;
 }
 
@@ -75,10 +79,14 @@
   outline-offset: -2px;
 }
 
-.user-name {
+.user-name, .delete-user-title, .signature-form-title {
   font-size: 1rem;
   font-weight: 500;
   line-height: 100%;
+}
+
+h3 {
+  margin-top: 0;
 }
 
 .dob-card {
@@ -127,12 +135,6 @@
   padding: 1.5rem;
 }
 
-.delete-user-title {
-  font-size: 1rem;
-  font-weight: 500;
-  line-height: 100%;
-}
-
 .delete-message {
   font-size: 1rem;
   line-height: 100%;
@@ -147,7 +149,6 @@ form {
   border-radius: 6px;
   background: #121623;
   margin: 1.5rem;
-  padding-right: 1.5rem;
 }
 
 label {
@@ -159,8 +160,8 @@ label {
   padding-bottom: 0.5rem;
 }
 
-input {
-  width: 100%;
+input, .dropdown {
+  width: 94%;
   display: flex;
   padding: 0.6875rem;
   align-items: center;
@@ -180,7 +181,7 @@ input {
 }
 
 .add-user-submit,
-.cancel {
+.cancel{
   display: flex;
   align-items: center;
   gap: 0.625rem;
@@ -190,24 +191,50 @@ input {
   padding: 0.875rem 1.25rem;
   border-radius: 6px;
   justify-content: flex-end;
+  bottom:1.5rem
 }
 
-.add-user-submit {
-  position: absolute;
-  bottom: 1.5rem;
-  right: 1.5rem;
+.add-user-submit, .add-signature-submit{
   border: 1px solid var(--ritten-blue, #1890FF);
   background: var(--ritten-blue, #1890FF);
   box-shadow: 0px 1px 8px 0px rgba(213, 213, 213, 0.50);
 }
 
-.cancel {
+.add-user-submit {
   position: absolute;
+  right: 1.5rem;
+}
+
+.cancel, .cancel-signature {
   color: var(--ritten-blue, #1890FF);
   background-color: transparent;
   border: transparent;
-  bottom: 1.5rem;
-  right: 9rem
+}
+
+.cancel {
+  position: absolute;
+  right: 9rem;
+}
+
+.cancel-signature, .add-signature-submit {
+  float: right;
+  text-align: right;
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+ 
+  font-size: 0.875rem;
+  line-height: 100%;
+  padding: 0.875rem 1.25rem;
+  border-radius: 6px;
+  justify-content: flex-end;
+  margin: 1rem 0 0 1rem;
+}
+
+.add-signature-submit {
+  border: 1px solid var(--ritten-blue, #1890FF);
+  background: var(--ritten-blue, #1890FF);
+  box-shadow: 0px 1px 8px 0px rgba(213, 213, 213, 0.50);
 }
 
 .signature-status {
@@ -230,24 +257,64 @@ input {
   background: rgba(239, 83, 80, 0.57);
 }
 
+.signature-status-section {
+  padding: 1.5rem;
+}
+
+.signature-status-title {
+  margin-bottom: 0.62rem;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 100%;
+  margin-top: 0;
+}
+
+.signature-status-info {
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 100%;
+}
+
+.green-info {
+  color: #26A69A;
+}
+
+.red-info {
+  color: var(--red, #EB5757);
+}
+
+.signature-view-edit-btn {
+  display: flex;
+  margin-top: -2.5rem;
+  padding: 0.875rem 1.25rem;
+  align-items: flex-end;
+  justify-content: flex-end;
+  margin-left: auto;
+  gap: 0.625rem;
+  border-radius: 6px;
+  border: 1px solid var(--gray-1, #333);
+  background: var(--ritten-blue, #1890FF);
+  box-shadow: 0px 1px 8px 0px rgba(82, 71, 67, 0.50);
+}
+
 /* TODO: fix this and card list from colliding when zooming in*/
 .info-tab {
   position: absolute;
   top: 0;
   right: 0;
-  bottom: 0;
   width: 48%;
   background: #121623;
   border-radius: 4px;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: flex-start;
   margin: 8.85rem 1.5rem 2.5rem 0rem;
   border-radius: 8px;
   border: 1px solid #363A45;
   opacity: 0;
   animation: slideIn 0.2s ease-in-out forwards;
+  flex-shrink: 0;
+  height: 80%;
 }
 
 @keyframes slideIn {
@@ -274,9 +341,6 @@ hr {
   line-height: 100%;
   display: inline-flex;
   margin-top: 1rem;
-}
-
-p.user-info {
   padding: 0 1rem 0 0;
   margin-bottom: 0;
 }
@@ -301,7 +365,6 @@ p.user-info {
 }
 
 .icon {
-  color: #D1D4DC;
   width: 1.25rem;
   padding-left: 1rem;
   height: 1.25rem;
@@ -327,6 +390,14 @@ p.user-info {
 
 .signature-form {
   display: block;
+  padding: 1.5rem;
+}
+
+.signature-label {
+  font-size: 0.6875rem;
+  line-height: 100%;
+  padding: 0.75rem;
+  padding-left: 0;
 }
 
 .signature-preview {
@@ -337,4 +408,24 @@ p.user-info {
   align-self: stretch;
   border-radius: 6px;
   background: #D2D2D2;
+  color: #000;
+  font-size: 3rem;
+  line-height: 100%;
+  justify-content: center;
+}
+
+.dancing-script {
+  font-family: 'Dancing Script';
+}
+
+.mr-dafoe {
+  font-family: 'Mr Dafoe';
+}
+
+.great-vibes {
+  font-family: 'Great Vibes';
+}
+
+.dropdown {
+  width: 98%;
 }
