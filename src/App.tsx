@@ -1,14 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import List from "./components/ListUsers";
 import AddUser from "./components/AddUser";
 import User from "./interfaces/User";
-import userData from './db.json';
 
 //I'm only *slighly* self-conscious that this file has too much logic in it
 function App() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
-  const [userList, setUserList] = useState<User[]>(userData.users);
+  const [userList, setUserList] = useState<User[]>([]);
+
+  useEffect(() => {
+    fetch('http://localhost:3001/users')
+      .then(response => response.json())
+      .then(data => setUserList(data))
+      .catch(error => console.error(error));
+  }, []);
+
 
   const handleOpenPopup = () => {
     setIsPopupOpen(true);
@@ -19,7 +26,19 @@ function App() {
   };
 
   const handleAddUser = (user: User) => {
-    setUserList(prevList => [...prevList, user]);
+    fetch('http://localhost:3001/users', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(user),
+  })
+    .then(response => response.json())
+    .then(data => {
+      setUserList(prevList => [...prevList, data]);
+      setIsPopupOpen(false);
+    })
+    .catch(error => console.error(error));
     setIsPopupOpen(false);
   };
 
@@ -29,7 +48,7 @@ function App() {
       <div className="toolbar">
         <button onClick={handleOpenPopup} className="add-user-btn">Add New User</button>
       </div>
-      <List userList={userList} />
+      <List userList={userList} setUserList={setUserList} />
       {isPopupOpen &&
         <div className="popup-overlay">
           <AddUser userList={userList} onClose={handleClosePopup} onAddUser={handleAddUser} />

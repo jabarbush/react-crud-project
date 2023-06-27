@@ -1,0 +1,56 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Jimmy A. User123123",
+      "dob": "03/13/2001",
+      "phone": "7277588823",
+      "email": "jimmya@invalid.email",
+      "signature": {
+        "pin": "444422",
+        "fontStyle": "Dancing Script"
+      }
+    },
+    {
+      "id": 5,
+      "name": "jake",
+      "dob": "04/19/2004",
+      "phone": "1231231231",
+      "email": "123@gmail.com",
+      "signature": {
+        "pin": "123123",
+        "fontStyle": "Dancing Script"
+      }
+    },
+    {
+      "id": 6,
+      "name": "ashley",
+      "dob": "04/19/1996",
+      "phone": "1231231231",
+      "email": "as@gmail.com",
+      "signature": {
+        "pin": "123123",
+        "fontStyle": "Mr Dafoe"
+      }
+    },
+    {
+      "id": 7,
+      "name": "asd wer",
+      "dob": "01/01/1995",
+      "phone": "1231231231",
+      "email": "123@yahoo.com",
+      "signature": {
+        "pin": "",
+        "fontStyle": ""
+      }
+    },
+    {
+      "id": 8,
+      "name": "asd",
+      "dob": "asd",
+      "phone": "asd",
+      "email": "asd",
+      "signature": null
+    }
+  ]
+}
