@@ -34,7 +34,7 @@
 }
 
 .add-user-btn:hover, .signature-view-edit-btn:hover, .add-user-submit:hover,
-.cancel:hover, .cancel-signature:hover, .add-signature-submit:hover, .sort-option:hover, .sort-button:hover {
+.cancel:hover, .cancel-signature:hover, .add-signature-submit:hover, .sort-button:hover {
   opacity: 70%;
 }
 
@@ -62,9 +62,12 @@
 
 .sort-option, .filter-option {
   padding: 0.62rem;
-  color: #1890FF;
   font-size: 1rem;
   line-height: 100%;
+}
+
+.sort-option:hover, .filter-option:hover {
+  color: #1890FF;
 }
 
 .filter-options {
