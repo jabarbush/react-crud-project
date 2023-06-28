@@ -24,7 +24,6 @@
 }
 
 .add-user-btn {
-  display: flex;
   padding: 0.875rem 1.25rem;
   align-items: flex-start;
   gap: 0.625rem;
@@ -35,7 +34,7 @@
 }
 
 .add-user-btn:hover, .signature-view-edit-btn:hover, .add-user-submit:hover,
-.cancel:hover, .cancel-signature:hover, .add-signature-submit:hover {
+.cancel:hover, .cancel-signature:hover, .add-signature-submit:hover, .sort-button:hover {
   opacity: 70%;
 }
 
@@ -43,15 +42,61 @@
   margin-bottom: 1rem;
 }
 
+.sort-container {
+  position: relative;
+  display: inline-block;
+  
+}
+
+.sort-options, .filter-options {
+  width: 15rem;
+  flex-direction: column;
+  align-items: flex-start;
+  border-radius: 4px;
+  border: 1px solid #2A2E38;
+  background: #121623;
+  position: absolute;
+  z-index: 99;
+  right: 12rem;
+}
+
+.sort-option, .filter-option {
+  padding: 0.62rem;
+  font-size: 1rem;
+  line-height: 100%;
+}
+
+.sort-option:hover, .filter-option:hover {
+  color: #1890FF;
+}
+
+.filter-options {
+  right: -5rem;
+}
+
+.sort-button {
+  padding: 0.5rem 0rem;
+  margin: 0 0.5rem 0 0.5rem;
+  background-color: transparent;
+  border: transparent;
+  color: #D1D4DC;
+}
+
+.toolbar-title {
+ display: inline;
+ margin-left: 1rem;
+}
+
 .list-container {
   display: block;
   flex-wrap: wrap;
   width: 100%;
-  transition: width 0.2s;
+  transition: width 0.2s ease;
 }
 
 .list-container.active {
   width: 50%;
+  transition: width 0.2s ease;
 }
 
 .card {
@@ -77,7 +122,7 @@
   outline-offset: -2px;
 }
 
-.user-name, .delete-user-title, .signature-form-title, .edit-user-info-title, .signature-status-title, .signature-status-info, .page-title {
+.user-name, .toolbar-title, .sort-button, .delete-user-title, .signature-form-title, .edit-user-info-title, .signature-status-title, .signature-status-info, .page-title {
   font-size: 1rem;
   font-weight: 500;
   line-height: 100%;
@@ -206,7 +251,7 @@ input, .dropdown {
   right: 1.5rem;
 }
 
-.cancel, .cancel-signature {
+.cancel, .cancel-signature, .sort-button {
   color: var(--ritten-blue, #1890FF);
   background-color: transparent;
   border: transparent;

@@ -2,18 +2,18 @@
   "users": [
     {
       "id": 1,
-      "name": "Jimmy A. User123123",
+      "name": "Jimmy A. User123456",
       "dob": "03/13/2001",
       "phone": "7277588823",
       "email": "jimmya@invalid.email",
       "signature": {
         "pin": "031302",
-        "fontStyle": "Mr Dafoe"
+        "fontStyle": "Dancing Script"
       }
     },
     {
       "id": 5,
-      "name": "jake",
+      "name": "jake barbie",
       "dob": "04/19/2004",
       "phone": "1231231231",
       "email": "123@gmail.com",
@@ -30,7 +30,7 @@
       "email": "as@gmail.com",
       "signature": {
         "pin": "123123",
-        "fontStyle": "Great Vibes"
+        "fontStyle": "Dancing Script"
       }
     },
     {
@@ -46,11 +46,14 @@
     },
     {
       "id": 8,
-      "name": "jake",
+      "name": "ashley",
       "dob": "03/21/2003",
       "phone": "1231231231",
       "email": "jab@gmail.com",
-      "signature": null
+      "signature": {
+        "pin": "123123",
+        "fontStyle": "Dancing Script"
+      }
     },
     {
       "id": 9,
