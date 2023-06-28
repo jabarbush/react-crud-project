@@ -127,63 +127,61 @@ const UserInfo: React.FC<UserInfoProps> = ({ userList, selectedUser, onCloseUser
   }
 
   return (
-    <div>
-      <div className={`info-tab ${selectedUser ? 'active' : ''}`}>
-        {showEditUserInfo ? (
-          <EditUserInfo selectedUser={selectedUser} onCloseEditUserInfo={() => setShowEditUserInfo(false)} setUserList={setUserList}/>
-          ) : (
-          <div>
-            <div className='data'>
-              <div className='user-name'>{selectedUser?.name}</div>
-              <div className='user-info'>DOB:&nbsp;
-                <div className='user-info-value'>{selectedUser?.dob}</div>
-              </div>
-              <div className='user-info'>Phone:&nbsp;
-                <div className='user-info-value'>{selectedUser?.phone}</div>
-              </div>
-              <div className='user-info'>Email:&nbsp;
-                <div className='user-info-value'>{selectedUser?.email}</div>
-              </div>
-              <div className='icons'>
-                <Trash className='icon' onClick={handleOpenDeleteUser} />
-                <Edit className='icon' onClick={handleOpenEditUserInfo} />
-                <FormClose className='icon-big-x' onClick={onCloseUserInfo} />
+    <div className={'info-tab'}>
+      {showEditUserInfo ? (
+        <EditUserInfo selectedUser={selectedUser} onCloseEditUserInfo={() => setShowEditUserInfo(false)} setUserList={setUserList} />
+        ) : (
+        <div>
+          <div className='data'>
+            <div className='user-name'>{selectedUser?.name}</div>
+            <div className='user-info'>DOB:&nbsp;
+              <div className='user-info-value'>{selectedUser?.dob}</div>
+            </div>
+            <div className='user-info'>Phone:&nbsp;
+              <div className='user-info-value'>{selectedUser?.phone}</div>
+            </div>
+            <div className='user-info'>Email:&nbsp;
+              <div className='user-info-value'>{selectedUser?.email}</div>
+            </div>
+            <div className='icons'>
+              <Trash className='icon' onClick={handleOpenDeleteUser} />
+              <Edit className='icon' onClick={handleOpenEditUserInfo} />
+              <FormClose className='icon-big-x' onClick={onCloseUserInfo} />
+            </div>
+          </div>
+          <hr />
+          {showSignatureForm ? (
+            <div className='signature-form'>
+              <h3 className='signature-form-title'>Add a custom signature</h3>
+              <label className='signature-label'>Signature PIN (6 Digits)</label>
+              <input type='text' placeholder='Signature PIN' value={signaturePin} onChange={(e) => setSignaturePin(e.target.value)} required/>
+              <label className='signature-label'>Signature Font Style</label>
+              <FontDropdown selectedUser={updatedSelectedUser} options={options} onOptionChange={handleFontStyleChange} />
+              <label className='signature-label'>Signature Preview</label>
+              <div className={`signature-preview ${fontClass()}`}>{selectedUser?.name}</div>
+              <div className='signature-btns'>
+                <button className="add-signature-submit" onClick={handleAddSignature} type="submit">Add Signature</button>
+                <button className="cancel-signature" onClick={hideViewSignature}>Cancel</button>
               </div>
             </div>
-            <hr />
-            {showSignatureForm ? (
-              <div className='signature-form'>
-                <h3 className='signature-form-title'>Add a custom signature</h3>
-                <label className='signature-label'>Signature PIN (6 Digits)</label>
-                <input type='text' placeholder='Signature PIN' value={signaturePin} onChange={(e) => setSignaturePin(e.target.value)} required/>
-                <label className='signature-label'>Signature Font Style</label>
-                <FontDropdown selectedUser={updatedSelectedUser} options={options} onOptionChange={handleFontStyleChange} />
-                <label className='signature-label'>Signature Preview</label>
-                <div className={`signature-preview ${fontClass()}`}>{selectedUser?.name}</div>
-                <div className='signature-btns'>
-                  <button className="add-signature-submit" onClick={handleAddSignature} type="submit">Add Signature</button>
-                  <button className="cancel-signature" onClick={hideViewSignature}>Cancel</button>
+          ) : (
+            <div>
+              <div className='signature-status-section'>
+                <h3 className='signature-status-title'>Signature status:</h3>
+                <div className={`signature-status-info ${updatedSelectedUser?.signature ? 'green-info' : 'red-info'}`}>
+                  {updatedSelectedUser?.signature ? 'Has Custom Signature' : 'Missing Custom Signature'}
                 </div>
+                <button className="signature-view-edit-btn" onClick={showViewSignature}>
+                  {selectedUser?.signature ? 'View Signature' : 'Add Signature'}
+                </button>
               </div>
-            ) : (
-              <div>
-                <div className='signature-status-section'>
-                  <h3 className='signature-status-title'>Signature status:</h3>
-                  <div className={`signature-status-info ${updatedSelectedUser?.signature ? 'green-info' : 'red-info'}`}>
-                    {updatedSelectedUser?.signature ? 'Has Custom Signature' : 'Missing Custom Signature'}
-                  </div>
-                  <button className="signature-view-edit-btn" onClick={showViewSignature}>
-                    {selectedUser?.signature ? 'View Signature' : 'Add Signature'}
-                  </button>
-                </div>
-                <hr />
-              </div>
-            )}
-            {showDeleteUser &&
-              <DeleteUser userList={userList} selectedUser={selectedUser} onClose={handleCloseDeleteUser} onDeleteUser={onCloseUserInfo} setUserList={setUserList} />}
-          </div>
-        )}  
-      </div>
+              <hr />
+            </div>
+          )}
+          {showDeleteUser &&
+            <DeleteUser userList={userList} selectedUser={selectedUser} onClose={handleCloseDeleteUser} onDeleteUser={onCloseUserInfo} setUserList={setUserList} />}
+        </div>
+      )}  
     </div>
   );
 };
