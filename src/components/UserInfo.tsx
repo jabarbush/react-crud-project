@@ -12,7 +12,7 @@ const UserInfo: React.FC<UserInfoProps> = ({ userList, selectedUser, onCloseUser
   const [showDeleteUser, setShowDeleteUser] = useState(false);
   const [showEditUserInfo, setShowEditUserInfo] = useState(false);
   const [showSignatureForm, setShowSignatureForm] = useState(false);
-  const [signaturePin, setSignaturePin] = useState(selectedUser?.signature?.pin || '');
+  const [signaturePin, setSignaturePin] = useState(selectedUser?.signature?.pin || undefined);
   const [selectedOption, setSelectedOption] = useState('');
   const [updatedSelectedUser, setUpdatedSelectedUser] = useState<User | null>(selectedUser);
 
@@ -45,6 +45,33 @@ const UserInfo: React.FC<UserInfoProps> = ({ userList, selectedUser, onCloseUser
   };
 
   const handleAddSignature = () => {
+
+    if (!signaturePin) {
+      alert('Please enter a PIN.');
+      return;
+    }
+
+    if (signaturePin.length !== 6) {
+      alert('PIN must be exactly 6 digits.');
+      return;
+    }
+
+    const userDOB = selectedUser?.dob;
+    if (userDOB) {
+      const dobParts = userDOB.split('/');
+      const year = dobParts[2].slice(-2);
+      const dob = dobParts[0] + dobParts[1] + year;
+      if (signaturePin === dob) {
+        alert('PIN must not match the user\'s date of birth.');
+        return;
+      }
+    }
+
+    if (!selectedOption) {
+      alert('Please select a font style.');
+      return;
+    }
+
     if (selectedUser) {
       const updatedUser = {
         ...selectedUser,
@@ -69,16 +96,14 @@ const UserInfo: React.FC<UserInfoProps> = ({ userList, selectedUser, onCloseUser
           }
         })
         .then(updatedUser => {
-          // Update the userList state by replacing the updated user
           setUserList(prevUserList =>
             prevUserList.map(user => (user.id === updatedUser.id ? updatedUser : user))
           );
 
-          // Manually update the selectedUser state if it's the same user
           if (selectedUser.id === updatedUser.id) {
             setUpdatedSelectedUser(updatedUser);
           }
-
+          setSelectedOption(updatedUser.signature.fontStyle);
           setShowSignatureForm(false);
         })
         .catch(error => {
@@ -87,10 +112,9 @@ const UserInfo: React.FC<UserInfoProps> = ({ userList, selectedUser, onCloseUser
     }
   };
   
-
   const handleFontStyleChange = (selectedOption: string) => {
     setSelectedOption(selectedOption);
-    fontClass()
+    fontClass();
   };
 
   const fontClass = () => {
@@ -106,7 +130,7 @@ const UserInfo: React.FC<UserInfoProps> = ({ userList, selectedUser, onCloseUser
     <div>
       <div className={`info-tab ${selectedUser ? 'active' : ''}`}>
         {showEditUserInfo ? (
-          <EditUserInfo selectedUser={selectedUser} onCloseEditUserInfo={() => setShowEditUserInfo(false)} />
+          <EditUserInfo selectedUser={selectedUser} onCloseEditUserInfo={() => setShowEditUserInfo(false)} setUserList={setUserList}/>
           ) : (
           <div>
             <div className='data'>
@@ -123,27 +147,17 @@ const UserInfo: React.FC<UserInfoProps> = ({ userList, selectedUser, onCloseUser
               <div className='icons'>
                 <Trash className='icon' onClick={handleOpenDeleteUser} />
                 <Edit className='icon' onClick={handleOpenEditUserInfo} />
-                <FormClose className='icon' onClick={onCloseUserInfo} />
+                <FormClose className='icon-big-x' onClick={onCloseUserInfo} />
               </div>
             </div>
             <hr />
-
             {showSignatureForm ? (
               <div className='signature-form'>
                 <h3 className='signature-form-title'>Add a custom signature</h3>
                 <label className='signature-label'>Signature PIN (6 Digits)</label>
-                <input
-                  type='text'
-                  placeholder='Signature PIN'
-                  value={signaturePin}
-                  onChange={(e) => setSignaturePin(e.target.value)}
-                />
+                <input type='text' placeholder='Signature PIN' value={signaturePin} onChange={(e) => setSignaturePin(e.target.value)} required/>
                 <label className='signature-label'>Signature Font Style</label>
-                <FontDropdown
-                  selectedUser={selectedUser}
-                  options={options}
-                  onOptionChange={handleFontStyleChange}
-                />
+                <FontDropdown selectedUser={updatedSelectedUser} options={options} onOptionChange={handleFontStyleChange} />
                 <label className='signature-label'>Signature Preview</label>
                 <div className={`signature-preview ${fontClass()}`}>{selectedUser?.name}</div>
                 <div className='signature-btns'>

@@ -4,7 +4,6 @@ import ListProps from '../interfaces/ListProps';
 import UserInfo from './UserInfo';
 import { ReactComponent as PanelLeftClose } from '../assets/panel-left-close.svg';
 
-
 const List: React.FC<ListProps> = ({ userList, setUserList }) => {
   const [selectedUser, setSelectedUser] = useState<User | null>(null);
 

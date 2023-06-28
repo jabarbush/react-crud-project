@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import User from '../interfaces/User';
 import AddUserProps from '../interfaces/AddUserProps';
+import { validateDateOfBirth, validateEmail, validatePhone, validateRequiredFields } from '../utils/FormValidation';
 
 const AddUser: React.FC<AddUserProps> = ({ userList, onClose, onAddUser }) => {
   const [isPopupVisible, setIsPopupVisible] = useState(true);
@@ -21,26 +22,12 @@ const AddUser: React.FC<AddUserProps> = ({ userList, onClose, onAddUser }) => {
   const handleAddUser = (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!name || !dob || !phone || !email) {
-      alert('Please fill in all required fields.');
-      return;
-    }
-
-    const phoneRegex = /^\d{10}$/;
-    if (!phone.match(phoneRegex)) {
-      alert('Please enter a valid phone number.');
-      return;
-    }
-
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!email.match(emailRegex)) {
-      alert('Please enter a valid email address.');
-      return;
-    }
-
-    const dateRegex = /^(0[1-9]|1[0-2])\/(0[1-9]|1\d|2\d|3[01])\/(19|20)\d{2}$/;
-    if (!dob.match(dateRegex)) {
-      alert('Please enter a valid date in the format MM/DD/YYYY.');
+    if (
+      !validateRequiredFields(name, dob, phone, email) ||
+      !validateDateOfBirth(dob) ||
+      !validatePhone(phone) ||
+      !validateEmail(email)
+    ) {
       return;
     }
 
@@ -70,12 +57,8 @@ const AddUser: React.FC<AddUserProps> = ({ userList, onClose, onAddUser }) => {
         <input type="text" placeholder="Phone" value={phone} onChange={(e) => setPhone(e.target.value)} required />
         <label>Email</label>
         <input type="text" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-        <button className="cancel" onClick={handleClosePopup}>
-          Cancel
-        </button>
-        <button className="add-user-submit" type="submit">
-          Add User
-        </button>
+        <button className="cancel" onClick={handleClosePopup}>Cancel</button>
+        <button className="add-user-submit" type="submit">Add User</button>
       </form>
     </div>
   );

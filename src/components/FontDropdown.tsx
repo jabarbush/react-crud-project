@@ -4,12 +4,6 @@ import FontDropdownProps from "../interfaces/FontDropdownProps";
 const FontDropdown: React.FC<FontDropdownProps> = ({ selectedUser, options, onOptionChange }) => {
   const [selectedOption, setSelectedOption] = useState("");
 
-  const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const selectedFontStyle = event.target.value;
-    setSelectedOption(selectedFontStyle);
-    onOptionChange(selectedFontStyle);
-  };
-
   useEffect(() => {
     if (selectedUser && selectedUser.signature) {
       setSelectedOption(selectedUser.signature.fontStyle || "");
@@ -18,8 +12,14 @@ const FontDropdown: React.FC<FontDropdownProps> = ({ selectedUser, options, onOp
     }
   }, [selectedUser]);
 
+  const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const selectedFontStyle = event.target.value;
+    setSelectedOption(selectedFontStyle);
+    onOptionChange(selectedFontStyle);
+  };
+  
   return (
-    <select className="dropdown" value={selectedOption} onChange={handleChange}>
+    <select className="dropdown" value={selectedOption} onChange={handleChange} required>
       <option disabled value="">
         Select font...
       </option>
