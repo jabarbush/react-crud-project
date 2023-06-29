@@ -21,12 +21,16 @@ const EditUserInfo: React.FC<EditUserInfoProps> = ({ selectedUser, onCloseEditUs
 
   const handleSaveUserInfo = (e: React.FormEvent) => {
     e.preventDefault();
-
+  
+    if (!selectedUser) {
+      return;
+    }
+  
     const validatedName = name ?? '';
     const validatedDob = dob ?? '';
     const validatedPhone = phone ?? '';
     const validatedEmail = email ?? '';
-
+  
     if (
       !validateRequiredFields(validatedName, validatedDob, validatedPhone, validatedEmail) ||
       !validateDateOfBirth(validatedDob) ||
@@ -35,41 +39,41 @@ const EditUserInfo: React.FC<EditUserInfoProps> = ({ selectedUser, onCloseEditUs
     ) {
       return;
     }
-
-    const updatedUser = {
-      ...selectedUser,
-      name,
-      dob,
-      phone,
-      email
-    };
   
-    fetch(`http://localhost:3001/users/${selectedUser?.id}`, {
+    const updatedUser: User = {
+      ...selectedUser,
+      name: validatedName,
+      dob: validatedDob,
+      phone: validatedPhone,
+      email: validatedEmail,
+    };
+
+    fetch(`http://localhost:3001/users/${selectedUser.id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(updatedUser),
+      body: JSON.stringify({...updatedUser,
+        signature: selectedUser.signature}),
     })
-      .then(response => {
+      .then((response) => {
         if (response.ok) {
           setUserList((prevUserList: User[]) => {
             const updatedUserList = prevUserList.map((user: User) => {
               if (user.id === updatedUser.id) {
-                return updatedUser;
+                return {...updatedUser,
+                  signature: user.signature};
               }
               return user;
             });
             return updatedUserList as User[];
-          });      
-          
+          });
           console.log('User updated successfully');
         } else {
           console.error('Error updating user:', response.statusText);
         }
       })
-      
-      .catch(error => {
+      .catch((error) => {
         console.error('Error updating user:', error);
       });
   };

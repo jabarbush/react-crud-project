@@ -19,8 +19,8 @@ const UserInfo: React.FC<UserInfoProps> = ({ userList, selectedUser, onCloseUser
   useEffect(() => {
     setSignaturePin(selectedUser?.signature?.pin || '');
     setSelectedOption(selectedUser?.signature?.fontStyle || '');
-    setUpdatedSelectedUser(selectedUser);
-  }, [selectedUser]);
+    setUpdatedSelectedUser(updatedSelectedUser);
+  }, [selectedUser, updatedSelectedUser]);
 
   const options = ["Dancing Script", "Mr Dafoe", "Great Vibes"];
 
@@ -127,25 +127,25 @@ const UserInfo: React.FC<UserInfoProps> = ({ userList, selectedUser, onCloseUser
   }
 
   return (
-    <div className={'info-tab'}>
+    <div className={'info-tab'} data-testid="userInfo-component">
       {showEditUserInfo ? (
-        <EditUserInfo selectedUser={selectedUser} onCloseEditUserInfo={() => setShowEditUserInfo(false)} setUserList={setUserList} />
+        <EditUserInfo selectedUser={updatedSelectedUser} onCloseEditUserInfo={() => setShowEditUserInfo(false)} setUserList={setUserList} />
         ) : (
         <div>
           <div className='data'>
             <div className='user-name'>{selectedUser?.name}</div>
-            <div className='user-info'>DOB:&nbsp;
+            <div className='user-info' data-testid="date-of-birth">DOB:&nbsp;
               <div className='user-info-value'>{selectedUser?.dob}</div>
             </div>
-            <div className='user-info'>Phone:&nbsp;
+            <div className='user-info' data-testid="phone">Phone:&nbsp;
               <div className='user-info-value'>{selectedUser?.phone}</div>
             </div>
-            <div className='user-info'>Email:&nbsp;
+            <div className='user-info' data-testid="email">Email:&nbsp;
               <div className='user-info-value'>{selectedUser?.email}</div>
             </div>
             <div className='icons'>
-              <Trash className='icon' onClick={handleOpenDeleteUser} />
-              <Edit className='icon' onClick={handleOpenEditUserInfo} />
+              <Trash className='icon' onClick={handleOpenDeleteUser} data-testid="delete-user-icon"/>
+              <Edit className='icon' onClick={handleOpenEditUserInfo} data-testid="edit-user-icon"/>
               <FormClose className='icon-big-x' onClick={onCloseUserInfo} />
             </div>
           </div>

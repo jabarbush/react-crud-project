@@ -4,7 +4,7 @@ import { ReactComponent as PanelLeftClose } from "../assets/panel-left-close.svg
 
 const List: React.FC<ListProps> = ({ userList, setUserList, selectedUser, onUserClick }) => {
   return (
-    <div>
+    <div data-testid="list-component">
       <div className="list-container">
         {userList.map((user) => (
           <div
