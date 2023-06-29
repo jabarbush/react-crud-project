@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import AddUser from "./AddUser";
 import User from "../interfaces/User";
-import ToolbarProps from "../interfaces/ToolbarProps";
+import Context from "../context";
 
-const Toolbar: React.FC<ToolbarProps> = ({ userList, setUserList }) => {
+function Toolbar() {
+  const { userList, setUserList } = useContext(Context);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [isSortOpen, setIsSortOpen] = useState(false);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
@@ -34,7 +35,7 @@ const Toolbar: React.FC<ToolbarProps> = ({ userList, setUserList }) => {
     })
       .then((response) => response.json())
       .then((data) => {
-        setUserList((prevList) => [...prevList, data]);
+        setUserList((prevList: User[]) => [...prevList, data]);
         setIsPopupOpen(false);
       })
       .catch((error) => console.error(error));

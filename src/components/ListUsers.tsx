@@ -1,12 +1,14 @@
-import React from "react";
-import ListProps from "../interfaces/ListProps";
+import React, { useContext } from "react";
 import { ReactComponent as PanelLeftClose } from "../assets/panel-left-close.svg";
+import Context from "../context";
+import User from "../interfaces/User";
 
-const List: React.FC<ListProps> = ({ userList, setUserList, selectedUser, onUserClick }) => {
+  function List() {
+    const { userList, selectedUser, onUserClick } = useContext(Context);
   return (
     <div>
       <div className="list-container">
-        {userList.map((user) => (
+        {userList.map((user: User) => (
           <div
             key={user.id}
             className={`card ${selectedUser === user ? "active" : ""}`}

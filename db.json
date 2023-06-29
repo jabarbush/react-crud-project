@@ -1,17 +1,6 @@
 {
   "users": [
     {
-      "id": 1,
-      "name": "Jimmy A. User123456",
-      "dob": "03/13/2001",
-      "phone": "7277588823",
-      "email": "jimmya@invalid.email",
-      "signature": {
-        "pin": "031302",
-        "fontStyle": "Dancing Script"
-      }
-    },
-    {
       "id": 5,
       "name": "jake barbie",
       "dob": "04/19/2004",
