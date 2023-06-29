@@ -1,0 +1,97 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserInfo component renders user information correctly 1`] = `
+<div
+  class="info-tab"
+  data-testid="userInfo-component"
+>
+  <div>
+    <div
+      class="data"
+    >
+      <div
+        class="user-name"
+      >
+        jake
+      </div>
+      <div
+        class="user-info"
+        data-testid="date-of-birth"
+      >
+        DOB: 
+        <div
+          class="user-info-value"
+        >
+          03/03/2003
+        </div>
+      </div>
+      <div
+        class="user-info"
+        data-testid="phone"
+      >
+        Phone: 
+        <div
+          class="user-info-value"
+        >
+          4564564564
+        </div>
+      </div>
+      <div
+        class="user-info"
+        data-testid="email"
+      >
+        Email: 
+        <div
+          class="user-info-value"
+        >
+          jake4@gmail.com
+        </div>
+      </div>
+      <div
+        class="icons"
+      >
+        <svg
+          class="icon"
+          data-testid="delete-user-icon"
+        >
+          trash.svg
+        </svg>
+        <svg
+          class="icon"
+          data-testid="edit-user-icon"
+        >
+          edit.svg
+        </svg>
+        <svg
+          class="icon-big-x"
+        >
+          form-close.svg
+        </svg>
+      </div>
+    </div>
+    <hr />
+    <div>
+      <div
+        class="signature-status-section"
+      >
+        <h3
+          class="signature-status-title"
+        >
+          Signature status:
+        </h3>
+        <div
+          class="signature-status-info green-info"
+        >
+          Has Custom Signature
+        </div>
+        <button
+          class="signature-view-edit-btn"
+        >
+          View Signature
+        </button>
+      </div>
+      <hr />
+    </div>
+  </div>
+</div>
+`;

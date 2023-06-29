@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders App component correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="app"
+  >
+    <div
+      data-testid="toolbar-component"
+    >
+      <h1
+        class="page-title"
+      >
+        User Roster
+      </h1>
+      <div
+        class="toolbar"
+      >
+        <button
+          class="add-user-btn"
+        >
+          Add New User
+        </button>
+        <div
+          class="sort-container"
+        >
+          <h3
+            class="toolbar-title"
+          >
+            Sort By: 
+          </h3>
+          <button
+            class="sort-button"
+          >
+            Date of Birth (Ascending)
+          </button>
+          <h3
+            class="toolbar-title"
+          >
+            Filter By: 
+          </h3>
+          <button
+            class="sort-button"
+          >
+            Filter Options
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="list-container "
+    >
+      <div
+        data-testid="list-component"
+      >
+        <div
+          class="list-container"
+        />
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

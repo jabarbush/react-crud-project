@@ -1,75 +1,37 @@
 {
   "users": [
     {
-      "id": 1,
-      "name": "Jimmy A. User123456",
-      "dob": "03/13/2001",
-      "phone": "7277588823",
-      "email": "jimmya@invalid.email",
+      "id": 4,
+      "name": "jake425525333",
+      "dob": "03/03/2003",
+      "phone": "4564564564",
+      "email": "jake4@gmail.com",
       "signature": {
-        "pin": "031302",
-        "fontStyle": "Dancing Script"
-      }
-    },
-    {
-      "id": 5,
-      "name": "jake barbie",
-      "dob": "04/19/2004",
-      "phone": "1231231231",
-      "email": "123@gmail.com",
-      "signature": {
-        "pin": "041905",
+        "pin": "123123",
         "fontStyle": "Mr Dafoe"
       }
     },
     {
+      "id": 5,
+      "name": "ashley1234",
+      "dob": "05/05/1995",
+      "phone": "0980980988",
+      "email": "ashley@jake.com",
+      "signature": {
+        "pin": "123123",
+        "fontStyle": "Dancing Script"
+      }
+    },
+    {
       "id": 6,
-      "name": "ashley",
-      "dob": "04/19/1996",
+      "name": "123",
+      "dob": "01/01/2001",
       "phone": "1231231231",
-      "email": "as@gmail.com",
+      "email": "jake@gmail.com",
       "signature": {
         "pin": "123123",
-        "fontStyle": "Dancing Script"
+        "fontStyle": "Great Vibes"
       }
-    },
-    {
-      "id": 7,
-      "name": "jake2",
-      "dob": "01/01/2000",
-      "phone": "1231231231",
-      "email": "jake@yahoo.com",
-      "signature": {
-        "pin": "010100",
-        "fontStyle": "Dancing Script"
-      }
-    },
-    {
-      "id": 8,
-      "name": "ashley",
-      "dob": "03/21/2003",
-      "phone": "1231231231",
-      "email": "jab@gmail.com",
-      "signature": {
-        "pin": "123123",
-        "fontStyle": "Dancing Script"
-      }
-    },
-    {
-      "id": 9,
-      "name": "jake",
-      "dob": "08/12/1998",
-      "phone": "1231231231",
-      "email": "asd@gmail.com",
-      "signature": null
-    },
-    {
-      "id": 10,
-      "name": "jake",
-      "dob": "09/17/1997",
-      "phone": "1231231231",
-      "email": "324ihwefd@gmail.com",
-      "signature": null
     }
   ]
 }

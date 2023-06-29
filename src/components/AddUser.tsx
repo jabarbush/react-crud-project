@@ -57,7 +57,7 @@ const AddUser: React.FC<AddUserProps> = ({ userList, onClose, onAddUser }) => {
         <input type="text" placeholder="Phone" value={phone} onChange={(e) => setPhone(e.target.value)} required />
         <label>Email</label>
         <input type="text" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-        <button className="cancel" onClick={handleClosePopup}>Cancel</button>
+        <button className="cancel" onClick={handleClosePopup} data-testid="add-user-cancel-button">Cancel</button>
         <button className="add-user-submit" type="submit">Add User</button>
       </form>
     </div>

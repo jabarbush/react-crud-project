@@ -88,7 +88,7 @@ const Toolbar: React.FC<ToolbarProps> = ({ userList, setUserList }) => {
   };
 
   return (
-    <div>
+    <div data-testid="toolbar-component">
       <h1 className="page-title">User Roster</h1>
       <div className="toolbar">
         <button onClick={handleOpenPopup} className="add-user-btn">
