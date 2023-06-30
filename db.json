@@ -1,17 +1,6 @@
 {
   "users": [
     {
-      "id": 4,
-      "name": "jake425525333",
-      "dob": "03/03/2003",
-      "phone": "4564564564",
-      "email": "jake4@gmail.com",
-      "signature": {
-        "pin": "123123",
-        "fontStyle": "Mr Dafoe"
-      }
-    },
-    {
       "id": 5,
       "name": "ashley1234",
       "dob": "05/05/1995",
@@ -20,17 +9,6 @@
       "signature": {
         "pin": "123123",
         "fontStyle": "Dancing Script"
-      }
-    },
-    {
-      "id": 6,
-      "name": "123",
-      "dob": "01/01/2001",
-      "phone": "1231231231",
-      "email": "jake@gmail.com",
-      "signature": {
-        "pin": "123123",
-        "fontStyle": "Great Vibes"
       }
     }
   ]
