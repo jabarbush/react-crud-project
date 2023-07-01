@@ -42,7 +42,7 @@ exports[`renders App component correctly 1`] = `
           <button
             class="sort-button"
           >
-            Filter Options
+            All Users
           </button>
         </div>
       </div>
@@ -55,6 +55,7 @@ exports[`renders App component correctly 1`] = `
       >
         <div
           class="list-container"
+          data-testid="user-item"
         />
       </div>
     </div>

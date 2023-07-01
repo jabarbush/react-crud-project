@@ -57,7 +57,12 @@
   background: #121623;
   position: absolute;
   z-index: 99;
-  right: 12rem;
+  right: 10rem;
+}
+
+.filter-options {
+  width: 17rem;
+  left: 19rem;
 }
 
 .sort-option, .filter-option {

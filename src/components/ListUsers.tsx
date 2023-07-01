@@ -2,10 +2,10 @@ import React from "react";
 import ListProps from "../interfaces/ListProps";
 import { ReactComponent as PanelLeftClose } from "../assets/panel-left-close.svg";
 
-const List: React.FC<ListProps> = ({ userList, setUserList, selectedUser, onUserClick }) => {
+const List: React.FC<ListProps> = ({ userList, selectedUser, onUserClick }) => {
   return (
     <div data-testid="list-component">
-      <div className="list-container">
+      <div className="list-container" data-testid="user-item">
         {userList.map((user) => (
           <div
             key={user.id}
