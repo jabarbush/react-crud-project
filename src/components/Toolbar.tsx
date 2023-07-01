@@ -38,7 +38,6 @@ const Toolbar: React.FC<ToolbarProps> = ({ userList, setUserList }) => {
         setIsPopupOpen(false);
       })
       .catch((error) => console.error(error));
-    setIsPopupOpen(false);
   };
 
   const handleSortAscending = () => {
@@ -61,27 +60,27 @@ const Toolbar: React.FC<ToolbarProps> = ({ userList, setUserList }) => {
 
   const handleToggleSort = () => {
     setIsSortOpen((prevState) => !prevState);
+    setIsFilterOpen(false);
   };
 
   const handleToggleFilter = () => {
     setIsFilterOpen((prevState) => !prevState);
+    setIsSortOpen(false);
   };
 
-  //not efficient if there's a large # of users
   const handleFilter = (option: string) => {
     setIsFilterOpen(false);
-  
     fetch("http://localhost:3001/users")
       .then((response) => response.json())
       .then((data) => {
         let filteredData = data;
-  
+
         if (option === "withSignature") {
           filteredData = data.filter((user: User) => user.signature !== null);
         } else if (option === "withoutSignature") {
           filteredData = data.filter((user: User) => user.signature === null);
         }
-  
+
         setUserList(filteredData);
       })
       .catch((error) => console.error(error));
@@ -111,10 +110,10 @@ const Toolbar: React.FC<ToolbarProps> = ({ userList, setUserList }) => {
           )}
 
           <h3 className="toolbar-title">Filter By: </h3>
-          <button className="sort-button" onClick={handleToggleFilter}>Filter Options</button>
+          <button className="sort-button" onClick={handleToggleFilter}>All Users</button>
           {isFilterOpen && (
             <div className="filter-options">
-              <div className="filter-option" onClick={() => handleFilter("")}>
+              <div className="filter-option" onClick={() => handleFilter("")} data-testid="all-users">
                 All Users
               </div>
               <div className="filter-option" onClick={() => handleFilter("withSignature")}>

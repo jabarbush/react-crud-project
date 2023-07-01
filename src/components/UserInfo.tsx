@@ -3,13 +3,11 @@ import UserInfoProps from '../interfaces/UserInfoProps';
 import { ReactComponent as Trash } from '../assets/trash.svg';
 import { ReactComponent as Edit } from '../assets/edit.svg';
 import { ReactComponent as FormClose } from '../assets/form-close.svg';
-import DeleteUser from './DeleteUser';
 import FontDropdown from './FontDropdown';
 import EditUserInfo from './EditUserInfo';
 import User from '../interfaces/User';
 
-const UserInfo: React.FC<UserInfoProps> = ({ userList, selectedUser, onCloseUserInfo, setUserList }) => {
-  const [showDeleteUser, setShowDeleteUser] = useState(false);
+const UserInfo: React.FC<UserInfoProps> = ({ selectedUser, onCloseUserInfo, setUserList, onOpenDeleteUser }) => {
   const [showEditUserInfo, setShowEditUserInfo] = useState(false);
   const [showSignatureForm, setShowSignatureForm] = useState(false);
   const [signaturePin, setSignaturePin] = useState(selectedUser?.signature?.pin || undefined);
@@ -25,11 +23,7 @@ const UserInfo: React.FC<UserInfoProps> = ({ userList, selectedUser, onCloseUser
   const options = ["Dancing Script", "Mr Dafoe", "Great Vibes"];
 
   const handleOpenDeleteUser = () => {
-    setShowDeleteUser(true);
-  };
-
-  const handleCloseDeleteUser = () => {
-    setShowDeleteUser(false);
+    onOpenDeleteUser();
   };
 
   const handleOpenEditUserInfo = () => {
@@ -178,8 +172,6 @@ const UserInfo: React.FC<UserInfoProps> = ({ userList, selectedUser, onCloseUser
               <hr />
             </div>
           )}
-          {showDeleteUser &&
-            <DeleteUser userList={userList} selectedUser={selectedUser} onClose={handleCloseDeleteUser} onDeleteUser={onCloseUserInfo} setUserList={setUserList} />}
         </div>
       )}  
     </div>
