@@ -1,8 +1,5 @@
-import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import UserInfo from './components/UserInfo';
 import User from './interfaces/User';
-import Toolbar from './components/Toolbar';
 import DeleteUser from './components/DeleteUser';
 
 beforeEach(() => jest.resetAllMocks())

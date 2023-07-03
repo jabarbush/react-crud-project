@@ -74,7 +74,7 @@ describe('ListUsers component', () => {
         expect(list).toBeInTheDocument();
     });
 
-    test.only('ListUsers component renders each user in list', () => {
+    test('ListUsers component renders each user in list', () => {
         render(
             <ListUsers
                 selectedUser={selectedUser}

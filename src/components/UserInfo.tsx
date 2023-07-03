@@ -17,8 +17,8 @@ const UserInfo: React.FC<UserInfoProps> = ({ selectedUser, onCloseUserInfo, setU
   useEffect(() => {
     setSignaturePin(selectedUser?.signature?.pin || '');
     setSelectedOption(selectedUser?.signature?.fontStyle || '');
-    setUpdatedSelectedUser(updatedSelectedUser);
-  }, [selectedUser, updatedSelectedUser]);
+    setUpdatedSelectedUser(selectedUser);
+  }, [selectedUser]);
 
   const options = ["Dancing Script", "Mr Dafoe", "Great Vibes"];
 

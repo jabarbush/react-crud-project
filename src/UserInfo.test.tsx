@@ -1,4 +1,3 @@
-import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import UserInfo from './components/UserInfo';
 import User from './interfaces/User';
@@ -92,7 +91,7 @@ describe('UserInfo component', () => {
     expect(editFormElement).toBeInTheDocument();
   });
 
-  test('adds a signature if one is not present', () => {
+  test('add signature button shows if signature is not present', () => {
     render(
       <UserInfo
         userList={userList}
@@ -105,8 +104,6 @@ describe('UserInfo component', () => {
 
     const addSignatureButton = screen.getByText('Add Signature');
     fireEvent.click(addSignatureButton);
-
-    
     expect(selectedUser_null_signature).not.toBeNull;
   });
 });

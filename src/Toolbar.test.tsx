@@ -91,12 +91,17 @@ describe('Toolbar component', () => {
   
       if (dobText !== '') {
         const currentDate = new Date(dobText);
-
         if (prevDate !== null) {
           expect(currentDate.getTime()).toBeLessThan(prevDate.getTime());
         }
         prevDate = currentDate;
       }
     }
+  });
+
+  test('Toolbar component matches snapshot', () => {
+    const setUserList = jest.fn();
+    const { asFragment } = render(<Toolbar userList={userList} setUserList={setUserList} />)
+    expect(asFragment()).toMatchSnapshot();
   });
 });

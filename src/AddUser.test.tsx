@@ -1,8 +1,7 @@
-import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import UserInfo from './components/UserInfo';
 import User from './interfaces/User';
 import Toolbar from './components/Toolbar';
+import AddUser from './components/AddUser';
 
 beforeEach(() => jest.resetAllMocks())
 describe('AddUser component', () => {
@@ -45,5 +44,19 @@ test('closes the AddUser popup when it is open and "cancel" button is clicked', 
   
     const closeButton = screen.getByTestId('add-user-cancel-button');
     fireEvent.click(closeButton);
+  });
+
+  test('AddUser component matches snapshot', () => {
+    const onClose = jest.fn();
+    const setUserList = jest.fn();
+  
+    const { asFragment } = render(
+      <AddUser
+        userList={userList}
+        onClose={onClose}
+        onAddUser={setUserList}
+      />
+    );
+    expect(asFragment()).toMatchSnapshot();
   });
 });

@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddUser component AddUser component matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="add-user-popup"
+  >
+    <form>
+      <h2
+        class="new-user-title"
+      >
+        Add New User
+      </h2>
+      <label>
+        Name
+      </label>
+      <input
+        placeholder="Name"
+        required=""
+        type="text"
+        value=""
+      />
+      <label>
+        Date of Birth
+      </label>
+      <input
+        placeholder="Date of Birth"
+        required=""
+        type="text"
+        value=""
+      />
+      <label>
+        Phone
+      </label>
+      <input
+        placeholder="Phone"
+        required=""
+        type="text"
+        value=""
+      />
+      <label>
+        Email
+      </label>
+      <input
+        placeholder="Email"
+        required=""
+        type="text"
+        value=""
+      />
+      <button
+        class="cancel"
+        data-testid="add-user-cancel-button"
+      >
+        Cancel
+      </button>
+      <button
+        class="add-user-submit"
+        type="submit"
+      >
+        Add User
+      </button>
+    </form>
+  </div>
+</DocumentFragment>
+`;
