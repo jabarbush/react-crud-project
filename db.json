@@ -2,13 +2,13 @@
   "users": [
     {
       "id": 5,
-      "name": "ashley1234",
+      "name": "ashley123456",
       "dob": "05/05/1995",
       "phone": "0980980988",
       "email": "ashley@jake.com",
       "signature": {
-        "pin": "123123",
-        "fontStyle": "Dancing Script"
+        "pin": "123124",
+        "fontStyle": "Mr Dafoe"
       }
     },
     {
@@ -17,14 +17,17 @@
       "dob": "04/04/2004",
       "phone": "1231231231",
       "email": "jab@gmail.com",
-      "signature": null
+      "signature": {
+        "pin": "444444",
+        "fontStyle": "Great Vibes"
+      }
     },
     {
       "id": 7,
-      "name": "ash",
-      "dob": "07/07/1997",
+      "name": "test",
+      "dob": "07/08/1998",
       "phone": "1231231231",
-      "email": "asd@ad.com",
+      "email": "123@test.com",
       "signature": null
     }
   ]

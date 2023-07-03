@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListUsers component ListUsers component matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    data-testid="list-component"
+  >
+    <div
+      class="list-container"
+      data-testid="user-item"
+    />
+  </div>
+</DocumentFragment>
+`;

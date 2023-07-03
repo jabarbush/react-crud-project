@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DeleteUser component DeleteUser component matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="delete-user-overlay"
+  >
+    <div
+      class="delete-user-popup"
+    >
+      <h2
+        class="delete-user-title"
+      >
+        Confirm Delete
+      </h2>
+      <svg
+        class="icons icon-big-x"
+        data-testid="delete-x-button"
+      >
+        form-close.svg
+      </svg>
+      <div
+        class="delete-message"
+      >
+        Are you sure you want to delete?
+      </div>
+      <button
+        class="cancel"
+        name="cancel"
+      >
+        Cancel
+      </button>
+      <button
+        class="add-user-submit"
+      >
+        OK
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;
