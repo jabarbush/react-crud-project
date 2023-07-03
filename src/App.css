@@ -71,7 +71,7 @@
   line-height: 100%;
 }
 
-.sort-option:hover, .filter-option:hover {
+.sort-option:hover, .filter-option:hover, .icon-big-x {
   color: #1890FF;
 }
 

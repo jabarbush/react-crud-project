@@ -29,9 +29,9 @@ const DeleteUser: React.FC<DeleteUserProps> = ({ userList, selectedUser, onClose
       <div className="delete-user-overlay">
         <div className='delete-user-popup'>
           <h2 className="delete-user-title">Confirm Delete</h2>
-          <FormClose onClick={onClose} className='icons icon-big-x' />
+          <FormClose onClick={onClose} className='icons icon-big-x' data-testid="delete-x-button" />
           <div className='delete-message'>Are you sure you want to delete?</div>
-          <button className="cancel" onClick={onClose}>Cancel</button>
+          <button className="cancel" onClick={onClose} name="cancel">Cancel</button>
           <button className="add-user-submit" onClick={handleDeleteUser}>OK</button>
         </div>
       </div>

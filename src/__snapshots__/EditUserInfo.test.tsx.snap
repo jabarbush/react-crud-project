@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EditUserInfo component EditUserInfo component matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="edit-user-info"
+  >
+    <h3
+      class="edit-user-info-title"
+    >
+      Edit User Information
+    </h3>
+    <svg
+      class="icons icon-big-x"
+    >
+      form-close.svg
+    </svg>
+    <br />
+    <div>
+      <label>
+        Name
+      </label>
+      <input
+        required=""
+        type="text"
+        value="jake"
+      />
+      <label>
+        Date of Birth
+      </label>
+      <input
+        required=""
+        type="text"
+        value="03/03/2003"
+      />
+      <label>
+        Phone
+      </label>
+      <input
+        required=""
+        type="text"
+        value="4564564564"
+      />
+      <label>
+        Email
+      </label>
+      <input
+        required=""
+        type="text"
+        value="jake4@gmail.com"
+      />
+      <div
+        class="signature-btns"
+      >
+        <button
+          class="add-signature-submit"
+          type="submit"
+        >
+          Save
+        </button>
+        <button
+          class="cancel-signature"
+        >
+          Cancel
+        </button>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
