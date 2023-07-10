@@ -1,6 +1,6 @@
-# Frontend Interview Project for Ritten
+# Sample React App Prompt
 
-As part of this project, you'll be building out a portion of an admin site which will provide tooling for configuring and managing the site's users. You've been provided with the skeleton code of a basic React/Typescript application and the necessary APIs. Your goal is to implement the UI in the provided design file. (Note that the font used throughout the designs ("Circular") is not a free font, so you may replace it with a free font/google font of your choosing.)
+As part of this project, you'll be building out a portion of an admin site which will provide tooling for configuring and managing the site's users. You've been provided with the skeleton code of a basic React/Typescript application and the necessary APIs. Your goal is to implement the UI in the provided design file.
 
 In terms of functionality, you should ensure the final product allows for:
 
@@ -40,18 +40,6 @@ There should be a way to filter the list of users by whether or not they have a 
 
 There should be a way to sort the list of users by their DOB (ascending and descending).
 
-## What We're Evaluating
-
-### General
-
-In general, the code you write should be production-ready, well-organized and DRY. The code should implement the functionality and the UI as per the design and the written requirements. If you should choose to add any additional libraries, you should be prepared to explain your decision.
-
-### Bonus Points
-
-- use of typescript
-- responsiveness of the UI
-- implementation of tests
-
 ## Available Scripts
 
 In the project directory, you can run:
@@ -68,7 +56,7 @@ You will also see any lint errors in the console.
 
 Runs the backend API for this project using [json-server](https://github.com/typicode/json-server).
 
-Address for the API is `http://localhost:3001`. Take a look at the `db.json` file for the data model (note that the `fontStyle` in the `signature` object will need to be changed to one of the fonts you choose to support) and the documentation
+Address for the API is `http://localhost:3001`. Take a look at the `db.json` file for the data model and the documentation
 for [json-server](https://github.com/typicode/json-server) to understand which routes you have available to you.
 
 ### `npm test`
