@@ -29,7 +29,7 @@
   gap: 0.625rem;
   border-radius: 6px;
   border: 1px solid var(--gray-1, #333);
-  background: var(--ritten-blue, #1890FF);
+  background: #1890FF;
   box-shadow: 0px 1px 8px 0px rgba(82, 71, 67, 0.50);
 }
 
@@ -256,8 +256,8 @@ input, .dropdown {
 }
 
 .add-user-submit, .add-signature-submit{
-  border: 1px solid var(--ritten-blue, #1890FF);
-  background: var(--ritten-blue, #1890FF);
+  border: 1px solid #1890FF;
+  background: #1890FF;
   box-shadow: 0px 1px 8px 0px rgba(213, 213, 213, 0.50);
 }
 
@@ -267,7 +267,7 @@ input, .dropdown {
 }
 
 .cancel, .cancel-signature, .sort-button {
-  color: var(--ritten-blue, #1890FF);
+  color: #1890FF;
   background-color: transparent;
   border: transparent;
 }
@@ -292,8 +292,8 @@ input, .dropdown {
 }
 
 .add-signature-submit {
-  border: 1px solid var(--ritten-blue, #1890FF);
-  background: var(--ritten-blue, #1890FF);
+  border: 1px solid #1890FF;
+  background: #1890FF;
   box-shadow: 0px 1px 8px 0px rgba(213, 213, 213, 0.50);
 }
 
@@ -348,7 +348,7 @@ input, .dropdown {
   gap: 0.625rem;
   border-radius: 6px;
   border: 1px solid var(--gray-1, #333);
-  background: var(--ritten-blue, #1890FF);
+  background: #1890FF;
   box-shadow: 0px 1px 8px 0px rgba(82, 71, 67, 0.50);
 }
 
