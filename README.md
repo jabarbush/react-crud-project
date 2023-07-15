@@ -1,4 +1,4 @@
-# Sample React App Prompt
+# User Signature App Prompt
 
 As part of this project, you'll be building out a portion of an admin site which will provide tooling for configuring and managing the site's users. You've been provided with the skeleton code of a basic React/Typescript application and the necessary APIs. Your goal is to implement the UI in the provided design file.
 
