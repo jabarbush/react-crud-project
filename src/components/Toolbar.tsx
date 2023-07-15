@@ -8,6 +8,7 @@ const Toolbar: React.FC<ToolbarProps> = ({ userList, setUserList }) => {
   const [isSortOpen, setIsSortOpen] = useState(false);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [sortOrder, setSortOrder] = useState("asc");
+  const [filterState, setFilterState] = useState("All Users");
 
   useEffect(() => {
     fetch("http://localhost:3001/users")
@@ -77,8 +78,13 @@ const Toolbar: React.FC<ToolbarProps> = ({ userList, setUserList }) => {
 
         if (option === "withSignature") {
           filteredData = data.filter((user: User) => user.signature !== null);
+          setFilterState("withSignature");
         } else if (option === "withoutSignature") {
           filteredData = data.filter((user: User) => user.signature === null);
+          setFilterState("withoutSignature");
+        }
+        else{
+          setFilterState("");
         }
 
         setUserList(filteredData);
@@ -110,7 +116,11 @@ const Toolbar: React.FC<ToolbarProps> = ({ userList, setUserList }) => {
           )}
 
           <h3 className="toolbar-title">Filter By: </h3>
-          <button className="sort-button" onClick={handleToggleFilter}>All Users</button>
+          <button className="sort-button" onClick={handleToggleFilter}>
+            {filterState === "" ? "All Users" : (
+              filterState === "withSignature" ? "Users With Custom Signatures" : "Users Without Custom Signatures"
+            )}
+          </button>
           {isFilterOpen && (
             <div className="filter-options">
               <div className="filter-option" onClick={() => handleFilter("")} data-testid="all-users">
