@@ -1,3 +1,10 @@
+# Demo
+
+![](https://github.com/jabarbush/react-crud-project/blob/main/src/assets/demo1.gif)
+
+This small project was used as practice using React. It contains basic UI components, reactivity, form validation, and utilizes `json-server` for CRUD operations. The full list of use cases and requirements that this app is based on can be found in the prompt below.
+
+
 # User Signature App Prompt
 
 As part of this project, you'll be building out a portion of an admin site which will provide tooling for configuring and managing the site's users. You've been provided with the skeleton code of a basic React/Typescript application and the necessary APIs. Your goal is to implement the UI in the provided design file.
